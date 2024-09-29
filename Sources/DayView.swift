@@ -108,19 +108,25 @@ public class DayView: UIView, TimelinePagerViewDelegate {
         }
     }
     
+    // This method configures the layout and constraints for the views
     private func configureLayout() {
         dayHeaderView.translatesAutoresizingMaskIntoConstraints = false
         timelinePagerView.translatesAutoresizingMaskIntoConstraints = false
 
-        dayHeaderView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor).isActive = true
-        dayHeaderView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor).isActive = true
+        // Modify the leading and trailing constraints to be flexible
+        // You can adjust the constants here based on the space needed for the friends list
+        
+        // Day Header View
+        dayHeaderView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
+        dayHeaderView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
         dayHeaderView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
         let heightConstraint = dayHeaderView.heightAnchor.constraint(equalToConstant: headerHeight)
         heightConstraint.priority = .defaultLow
         heightConstraint.isActive = true
 
-        timelinePagerView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor).isActive = true
-        timelinePagerView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor).isActive = true
+        // Timeline Pager View (below the day header)
+        timelinePagerView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
+        timelinePagerView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
         timelinePagerView.topAnchor.constraint(equalTo: dayHeaderView.bottomAnchor).isActive = true
         timelinePagerView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
